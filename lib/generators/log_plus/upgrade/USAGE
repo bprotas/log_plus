@@ -1,8 +1,0 @@
-Description:
-    Upgrades previously installed LogPlus resources.
-
-Example:
-    rails generate log_plus:upgrade
-
-    This will create:
-        what/will/it/create

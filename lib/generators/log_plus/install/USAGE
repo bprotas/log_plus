@@ -1,8 +1,0 @@
-Description:
-    Installs additional LogPlus resources.
-
-Example:
-    rails generate log_plus:install
-
-    This will create:
-        what/will/it/create

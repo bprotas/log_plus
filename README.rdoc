@@ -4,9 +4,13 @@
 
 = Features
 
+* Prefixes all logs with timestamps and remote IP addresses.
+* Sets max size on all logs to 1MB (for development mode only).
+* Allows one to customize the default settings provided by this gem.
+
 = Requirements
 
-1. {Ruby on Rails}[http://rubyonrails.org].
+1. {Ruby on Rails 3.2.x+}[http://rubyonrails.org].
 
 = Setup
 
@@ -19,6 +23,11 @@ Add the following to your Gemfile:
   gem "log_plus"
 
 = Usage
+
+Within your application or environment *.rb files, you can configure any of the following settings:
+
+* config.max_log_size = Defaults to 1MB. Provided by this gem only.
+* config.log_tags = Defaults to timestamp and remote IP prefixes. Provided by Rails.
 
 = Tests
 

@@ -9,13 +9,13 @@ Gem::Specification.new do |s|
   s.author								= "Brooke Kuhlmann"
   s.email									= "brooke@redalchemist.com"
   s.homepage							= "http://www.redalchemist.com"
-  s.summary								= "TODO: Add gem summary here."
-  s.description						= "TODO: Add gem description here."
+  s.summary								= "Enhances default Rails logging."
+  s.description						= "Enhances default Rails logging with custom log prefixes, max log sizes, and more."
 	s.license								= "MIT"
 	s.post_install_message	= "(W): www.redalchemist.com. (T): @ralchemist."
 
 	s.required_ruby_version = "~> 1.9.0"
-	s.add_dependency "rails", "~> 3.0"
+	s.add_dependency "rails", "~> 3.2"
   s.add_development_dependency "rake"
   s.add_development_dependency "rspec-rails"
 	
