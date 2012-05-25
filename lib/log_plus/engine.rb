@@ -3,7 +3,7 @@ module LogPlus
   	# Set defaults. Can be overwritten in app config.
   	config.max_log_size = 1 # Size is in megabytes.
 
-    initializer "log_plus" do |app|
+    initializer "log_plus.initialize" do |app|
   		# Set defaults. Can be overwritten in app config.
 			app.config.log_tags = [lambda {|request| Time.now}, :remote_ip] unless app.config.log_tags
 
