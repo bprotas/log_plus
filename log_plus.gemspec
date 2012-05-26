@@ -18,6 +18,8 @@ Gem::Specification.new do |s|
 	s.add_dependency "rails", "~> 3.2"
   s.add_development_dependency "rake"
   s.add_development_dependency "rspec-rails"
+  s.add_development_dependency("rb-fsevent") if RUBY_PLATFORM =~ /darwin/i
+  s.add_development_dependency "guard-rspec"
 	
   s.files            = Dir["lib/**/*", "vendor/**/*"]
   s.extra_rdoc_files = Dir["README*", "CHANGELOG*", "LICENSE*"]
