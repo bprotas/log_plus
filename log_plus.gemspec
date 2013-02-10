@@ -12,7 +12,6 @@ Gem::Specification.new do |s|
   s.summary								= "Enhances default Rails logging."
   s.description						= "Enhances default Rails logging with custom log prefixes, max log sizes, and more."
 	s.license								= "MIT"
-	s.post_install_message	= "(W): www.redalchemist.com. (T): @ralchemist."
 
 	s.required_ruby_version = "~> 1.9.0"
 	s.add_dependency "rails", "~> 3.2"
