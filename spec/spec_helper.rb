@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "log_plus"
+require "pry"
 
 RSpec.configure do |config|
   config.filter_run focus: true
