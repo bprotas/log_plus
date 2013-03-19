@@ -1,7 +1,7 @@
-require File.join File.dirname(__FILE__), "log_plus", "version.rb"
+require "log_plus/version"
 
 # Rails Enhancements
 if defined? Rails
   # Engine
-  require File.join File.dirname(__FILE__), "log_plus", "engine.rb"
+  require "log_plus/engine"
 end
