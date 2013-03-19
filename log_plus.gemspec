@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.description						= "Enhances default Rails logging with custom log prefixes, max log sizes, and more."
 	s.license								= "MIT"
 
-	s.required_ruby_version = "~> 1.9.0"
+	s.required_ruby_version = "~> 2.0.0"
 	s.add_dependency "rails", "~> 3.2"
   s.add_development_dependency "rake"
   s.add_development_dependency "pry"
