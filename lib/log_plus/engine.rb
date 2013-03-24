@@ -5,7 +5,7 @@ module LogPlus
 
     initializer "log_plus.initialize" do |app|
   		# Set defaults. Can be overwritten in app config.
-			app.config.log_tags = [lambda {|request| Time.now}, :remote_ip] unless app.config.log_tags
+			app.config.log_tags = [->request{Time.now}, :remote_ip] unless app.config.log_tags
 
 			if Rails.env.development?
 				# Iterate through all application log files.
