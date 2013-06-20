@@ -1,4 +1,4 @@
-= v1.0.0
+# v1.0.0
 
 * Updated the Engine initializer string.
 * Added Guard support.
@@ -11,6 +11,6 @@
 * Added 'tmp' directory to .gitignore.
 * Cleaned up requirement path syntax.
 
-= v0.1.0
+# v0.1.0
 
 * Initial version.
