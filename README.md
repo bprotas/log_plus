@@ -13,7 +13,7 @@
 # Requirements
 
 0. [Ruby 2.0.x+](http://www.ruby-lang.org/en).
-0. [Ruby on Rails 4.0.x+](http://rubyonrails.org).
+0. [Ruby on Rails 4.0.x](http://rubyonrails.org).
 
 # Setup
 
