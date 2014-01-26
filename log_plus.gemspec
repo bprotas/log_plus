@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.platform							= Gem::Platform::RUBY
   s.author								= "Brooke Kuhlmann"
   s.email									= "brooke@redalchemist.com"
-  s.homepage							= "http://www.redalchemist.com"
+  s.homepage							= "https://github.com/bkuhlmann/log_plus"
   s.summary								= "Enhances default Rails logging."
   s.description						= "Enhances default Rails logging with custom log prefixes, max log sizes, and more."
   s.license								= "MIT"
