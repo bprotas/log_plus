@@ -1,6 +1,15 @@
 $:.push File.expand_path("../lib", __FILE__)
 require "log_plus/version"
 
+def add_security_key specification, method, files
+  file = files.is_a?(Array) ? files.first : files
+  if File.exists? file
+    specification.public_send "#{method}=", files
+  else
+    puts "WARNING: Security key not found for #{specification.name} gem specification: #{file}"
+  end
+end
+
 Gem::Specification.new do |s|
   s.name									= "log_plus"
   s.version								= LogPlus::VERSION
@@ -12,10 +21,8 @@ Gem::Specification.new do |s|
   s.description						= "Enhances default Rails logging with custom log prefixes, max log sizes, and more."
   s.license								= "MIT"
 
-  unless ENV["TRAVIS"]
-    s.signing_key = File.expand_path("~/.ssh/gem-private.pem")
-    s.cert_chain  = [File.expand_path("~/.ssh/gem-public.pem")]
-  end
+  add_security_key s, "signing_key", File.expand_path("~/.ssh/gem-private.pem")
+  add_security_key s, "cert_chain", [File.expand_path("~/.ssh/gem-public.pem")]
 
   s.required_ruby_version = "~> 2.0"
   s.add_dependency "rails", "~> 4.0"
