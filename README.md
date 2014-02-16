@@ -2,6 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/log_plus.png)](http://badge.fury.io/rb/log_plus)
 [![Code Climate GPA](https://codeclimate.com/github/bkuhlmann/log_plus.png)](https://codeclimate.com/github/bkuhlmann/log_plus)
+[![Gemnasium Status](https://gemnasium.com/bkuhlmann/log_plus.png)](https://gemnasium.com/bkuhlmann/log_plus)
 [![Travis CI Status](https://secure.travis-ci.org/bkuhlmann/log_plus.png)](http://travis-ci.org/bkuhlmann/log_plus)
 
 # Features
