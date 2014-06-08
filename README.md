@@ -2,9 +2,9 @@
 
 [![Gem Version](https://badge.fury.io/rb/log_plus.png)](http://badge.fury.io/rb/log_plus)
 [![Code Climate GPA](https://codeclimate.com/github/bkuhlmann/log_plus.png)](https://codeclimate.com/github/bkuhlmann/log_plus)
+[![Code Climate Coverage](https://codeclimate.com/github/bkuhlmann/log_plus/coverage.png)](https://codeclimate.com/github/bkuhlmann/log_plus)
 [![Gemnasium Status](https://gemnasium.com/bkuhlmann/log_plus.png)](https://gemnasium.com/bkuhlmann/log_plus)
 [![Travis CI Status](https://secure.travis-ci.org/bkuhlmann/log_plus.png)](http://travis-ci.org/bkuhlmann/log_plus)
-[![Coverage Status](https://coveralls.io/repos/bkuhlmann/log_plus/badge.png)](https://coveralls.io/r/bkuhlmann/log_plus)
 [![Gittip](http://img.shields.io/gittip/bkuhlmann.svg)](https://www.gittip.com/bkuhlmann)
 
 # Features
