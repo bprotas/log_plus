@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    log_plus (2.3.0)
+    log_plus (2.4.0)
       rails (~> 4.0)
 
 GEM
