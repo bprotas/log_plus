@@ -12,7 +12,7 @@ module LogPlus
         Dir[File.join(Rails.root, "log", "*.log")].any? do |log|
           # Clear the log file if greater than max size.
           if File.size?(log).to_i > app.config.max_log_size.to_i.megabytes
-            $stdout.puts "[log_plus] Max log size detected, clearing the #{log} file..."
+            $stdout.puts "[log_plus] Max log size detected, clearing #{log}..."
             `> #{log}` # Clear the log.
           end
         end
