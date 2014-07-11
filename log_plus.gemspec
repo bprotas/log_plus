@@ -11,15 +11,15 @@ def add_security_key specification, method, files
 end
 
 Gem::Specification.new do |s|
-  s.name									= "log_plus"
-  s.version								= LogPlus::VERSION
-  s.platform							= Gem::Platform::RUBY
-  s.author								= "Brooke Kuhlmann"
-  s.email									= "brooke@redalchemist.com"
-  s.homepage							= "https://github.com/bkuhlmann/log_plus"
-  s.summary								= "Enhances default Rails logging."
-  s.description						= "Enhances default Rails logging with custom log prefixes, max log sizes, and more."
-  s.license								= "MIT"
+  s.name                  = "log_plus"
+  s.version               = LogPlus::VERSION
+  s.platform              = Gem::Platform::RUBY
+  s.author                = "Brooke Kuhlmann"
+  s.email                 = "brooke@redalchemist.com"
+  s.homepage              = "https://github.com/bkuhlmann/log_plus"
+  s.summary               = "Enhances default Rails logging."
+  s.description           = "Enhances default Rails logging with custom log prefixes, max log sizes, and more."
+  s.license               = "MIT"
 
   add_security_key s, "signing_key", File.expand_path("~/.ssh/gem-private.pem")
   add_security_key s, "cert_chain", [File.expand_path("~/.ssh/gem-public.pem")]
