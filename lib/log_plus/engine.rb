@@ -15,6 +15,11 @@ module LogPlus
           end
         end
       end
+
+      unless Rails.env.test? || Rails.env.development?
+        # Configure logger to keep 7 files max at 5MB each (i.e. 1024 * 1024 * 5 = 5248000 bytes).
+        app.config.logger = Logger.new "#{Rails.root}/log/#{Rails.env}.log", 7, 5248000
+      end
     end
   end
 end
