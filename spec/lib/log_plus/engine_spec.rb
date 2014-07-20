@@ -5,6 +5,8 @@ describe LogPlus::Engine do
     LogPlus::Engine.initializers.detect { |initializer| initializer.name == "log_plus.initialize" }
   end
 
+  before { Rails.env = "test" }
+
   context "default settings" do
     it "sets log size to 1MB" do
       expect(Rails.application.config.max_log_size).to eq(1)
