@@ -1,7 +1,12 @@
 require "bundler/setup"
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
-require "log_plus"
+
+ENV["RAILS_ENV"] ||= "test"
+require File.expand_path "../dummy/config/environment", __FILE__
+ENV["RAILS_ROOT"] ||= File.dirname(__FILE__) + "/dummy"
+
+require "rspec/rails"
 require "pry"
 require "pry-remote"
 require "pry-rescue"
@@ -21,6 +26,8 @@ RSpec.configure do |config|
   config.expect_with(:rspec) { |expectation| expectation.syntax = :expect }
   config.run_all_when_everything_filtered = true
   config.filter_run focus: true
+  config.order = "random"
+  config.infer_base_class_for_anonymous_controllers = false
 
   config.before(:all) { GC.disable }
   config.after(:all) { GC.enable }
