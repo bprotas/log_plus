@@ -1,5 +1,7 @@
 module LogPlus
   class Engine < ::Rails::Engine
+    isolate_namespace LogPlus
+
     config.max_log_size = 1 # Size in megabytes.
 
     initializer "log_plus.initialize" do |app|
