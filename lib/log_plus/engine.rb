@@ -6,7 +6,7 @@ module LogPlus
     config.log_plus_settings = {}
 
     initializer "log_plus.initialize" do |app|
-      app.config.log_plus_settings.reverse_merge! max_size: 1
+      app.config.log_plus_settings.reverse_merge! max_size: 1 # Size in megabytes.
       app.config.log_tags ||= [-> request { Time.current }, :remote_ip]
 
       if Rails.env.test? || Rails.env.development?

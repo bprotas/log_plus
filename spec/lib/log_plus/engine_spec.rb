@@ -8,11 +8,13 @@ describe LogPlus::Engine do
   before { Rails.env = "test" }
 
   describe "settings" do
-    context "common defaults" do
+    describe "max size" do
       it "sets log size to 1MB" do
         expect(Rails.application.config.log_plus_settings[:max_size]).to eq(1)
       end
+    end
 
+    describe "log tags" do
       it "sets log tag datetime (first parameter)" do
         travel_to Time.current do
           now = Time.current
@@ -28,27 +30,29 @@ describe LogPlus::Engine do
       end
     end
 
-    context "local environment (test or development)" do
-      it "does not configure the logger" do
-        skip "fails to pass when run with all specs (but doesn't when tested individually)" do
-          initializer.run LogPlus::Engine
-          logger = Rails.application.config.logger
+    describe "logger" do
+      context "local environment" do
+        it "does not configure the logger" do
+          skip "fails to pass when run with all specs (but doesn't when tested individually)" do
+            initializer.run LogPlus::Engine
+            logger = Rails.application.config.logger
 
-          expect(logger).to eq(nil)
+            expect(logger).to eq(nil)
+          end
         end
       end
-    end
 
-    context "non-local environment (not test or development)" do
-      before { Rails.env = "production" }
+      context "remote environment" do
+        before { Rails.env = "production" }
 
-      it "set logger to keep 7 logs max at 5MB each" do
-        initializer.run Rails.application
+        it "set logger to keep 7 logs max at 5MB each" do
+          initializer.run Rails.application
 
-        logger = Rails.application.config.logger
+          logger = Rails.application.config.logger
 
-        expect(logger.inspect).to match(/shift_age=7/)
-        expect(logger.inspect).to match(/shift_size=5248000/)
+          expect(logger.inspect).to match(/shift_age=7/)
+          expect(logger.inspect).to match(/shift_size=5248000/)
+        end
       end
     end
   end
@@ -58,7 +62,7 @@ describe LogPlus::Engine do
     let(:large_log) { File.join Dir.pwd, "spec", "support", "large.log.example" }
     let(:test_log) { File.join Dir.pwd, "spec", "dummy", "log", "test.log" }
 
-    context "local environment (test or development)" do
+    context "local environment" do
       it "clears logs larger than max size" do
         FileUtils.cp large_log, test_log
         initializer.run Rails.application
@@ -76,7 +80,7 @@ describe LogPlus::Engine do
       end
     end
 
-    context "non-local environment (not test or development)" do
+    context "remote environment" do
       before { Rails.env = "production" }
 
       it "does not clear logs larger than max size" do
