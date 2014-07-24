@@ -10,7 +10,7 @@ describe LogPlus::Engine do
   describe "settings" do
     context "common defaults" do
       it "sets log size to 1MB" do
-        expect(Rails.application.config.max_log_size).to eq(1)
+        expect(Rails.application.config.log_plus_settings[:max_size]).to eq(1)
       end
 
       it "sets log tag datetime (first parameter)" do

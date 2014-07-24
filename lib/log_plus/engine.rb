@@ -2,14 +2,16 @@ module LogPlus
   class Engine < ::Rails::Engine
     isolate_namespace LogPlus
 
-    config.max_log_size = 1 # Size in megabytes.
+    # Set defaults. Can be overwritten in app config.
+    config.log_plus_settings = {}
 
     initializer "log_plus.initialize" do |app|
-      app.config.log_tags = [-> request { Time.current }, :remote_ip] unless app.config.log_tags
+      app.config.log_plus_settings.reverse_merge! max_size: 1
+      app.config.log_tags ||= [-> request { Time.current }, :remote_ip]
 
       if Rails.env.test? || Rails.env.development?
         Dir[File.join(Rails.root, "log", "*.log")].any? do |log|
-          if File.size?(log).to_i > app.config.max_log_size.to_i.megabytes
+          if File.size?(log).to_i > app.config.log_plus_settings[:max_size].to_i.megabytes
             $stdout.puts "[log+] Max log size detected, clearing #{log}..."
             `> #{log}`
           end
