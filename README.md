@@ -9,9 +9,11 @@
 
 # Features
 
-* Prefixes all logs with timestamps and remote IP addresses.
-* Sets max size on all logs to 1MB (for development environment only).
-* Allows all configurations, provided by this gem, to be customized.
+* Provides customization of default settings.
+* Prefixes log output with timestamps and remote IP addresses.
+* Configures max log size to 1MB for local environments (i.e. test and development).
+* Configures max log size to 5MB with log rotation (7 files max) for remote environments (i.e. review, stage,
+  production, etc).
 
 # Requirements
 
@@ -43,8 +45,12 @@ Add the following to your Gemfile:
 
 Within your application or environment *.rb files, you can configure any of the following settings:
 
-* config.max_log_size = Defaults to 1MB (use numbers only). Provided by this gem.
-* config.log_tags = Defaults to timestamp and remote IP prefixes. Provided by Rails.
+* Log+ Settings:
+    * config.log_plus_settings[:max_size] = Optional. Sets max log size (local environments only). Default: 1MB.
+* Rails Settings:
+    * config.log_tags = Optional. Defines log output (all environments). Default: Timestamp and remote IP prefixes.
+    * config.logger = Optional. Configures the Rails logger (all environments). Default: Logger.new (with 5MB max size
+      and 7 files max rotation).
 
 # Tests
 

@@ -1,3 +1,16 @@
+# v3.0.0
+
+* Removed Rails 4.0.x support.
+* Removed vendor folder from gemspec (not used).
+* Fixed bug where multiple logs were not being cleaned.
+* Fixed logs with spaces in the name not being cleaned.
+* Updated log message output to not be as verbose.
+* Updated log output to use log+ instead of log_plus.
+* Added RSpec dummy app.
+* Added Log+ engine namespace isolation.
+* Added max log size and log rotation defaults for remote environments.
+* Added Log+ specific settings.
+
 # v2.4.0
 
 * Added Code Climate test coverage support.
