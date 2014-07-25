@@ -63,9 +63,17 @@ describe LogPlus::Engine do
     let(:test_log) { File.join Dir.pwd, "spec", "dummy", "log", "test.log" }
 
     context "local environment" do
+      it "clears a log larger than max size with spaces in the name" do
+        spaced_log = File.join Dir.pwd, "spec", "dummy", "log", "lots of spaces here.log"
+        FileUtils.cp large_log, spaced_log
+
+        initializer.run Rails.application
+
+        expect(File.size(spaced_log)).to eq(0)
+      end
+
       it "clears logs larger than max size" do
         second_log = File.join Dir.pwd, "spec", "dummy", "log", "second.log"
-
         FileUtils.cp large_log, test_log
         FileUtils.cp large_log, second_log
 

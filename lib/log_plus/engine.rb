@@ -13,7 +13,7 @@ module LogPlus
         Dir[File.join(Rails.root, "log", "*.log")].each do |log|
           if File.size?(log).to_i > app.config.log_plus_settings[:max_size].to_i.megabytes
             $stdout.puts "[log+] Max log size detected, clearing #{log}..."
-            `> #{log}`
+            `> "#{log}"`
           end
         end
       end
