@@ -5,9 +5,12 @@ describe LogPlus::Engine do
     LogPlus::Engine.initializers.detect { |initializer| initializer.name == "log_plus.initialize" }
   end
 
-  before { Rails.env = "test" }
+  before do
+    Rails.env = "test"
+    Rails.application.config.logger = nil
+  end
 
-  describe "settings" do
+  describe "default settings" do
     describe "max size" do
       it "sets log size to 1MB" do
         expect(Rails.application.config.log_plus_settings[:max_size]).to eq(1)
@@ -33,12 +36,10 @@ describe LogPlus::Engine do
     describe "logger" do
       context "local environment" do
         it "does not configure the logger" do
-          skip "fails to pass when run with all specs (but doesn't when tested individually)" do
-            initializer.run LogPlus::Engine
-            logger = Rails.application.config.logger
+          initializer.run Rails.application
+          logger = Rails.application.config.logger
 
-            expect(logger).to eq(nil)
-          end
+          expect(logger).to eq(nil)
         end
       end
 
@@ -47,7 +48,6 @@ describe LogPlus::Engine do
 
         it "set logger to keep 7 logs max at 5MB each" do
           initializer.run Rails.application
-
           logger = Rails.application.config.logger
 
           expect(logger.inspect).to match(/shift_age=7/)
@@ -73,6 +73,7 @@ describe LogPlus::Engine do
       it "does not clear logs smaller than max size" do
         FileUtils.cp small_log, test_log
         initializer.run Rails.application
+
         first_line = File.open(test_log, &:readline)
 
         expect(File.size(test_log) > 0).to eq(true)
