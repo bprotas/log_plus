@@ -10,7 +10,7 @@ module LogPlus
       app.config.log_tags ||= [-> request { Time.current }, :remote_ip]
 
       if Rails.env.test? || Rails.env.development?
-        Dir[File.join(Rails.root, "log", "*.log")].any? do |log|
+        Dir[File.join(Rails.root, "log", "*.log")].each do |log|
           if File.size?(log).to_i > app.config.log_plus_settings[:max_size].to_i.megabytes
             $stdout.puts "[log+] Max log size detected, clearing #{log}..."
             `> #{log}`

@@ -64,10 +64,15 @@ describe LogPlus::Engine do
 
     context "local environment" do
       it "clears logs larger than max size" do
+        second_log = File.join Dir.pwd, "spec", "dummy", "log", "second.log"
+
         FileUtils.cp large_log, test_log
+        FileUtils.cp large_log, second_log
+
         initializer.run Rails.application
 
         expect(File.size(test_log)).to eq(0)
+        expect(File.size(second_log)).to eq(0)
       end
 
       it "does not clear logs smaller than max size" do
