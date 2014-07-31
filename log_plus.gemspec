@@ -14,8 +14,8 @@ Gem::Specification.new do |s|
   s.name                  = "log_plus"
   s.version               = LogPlus::VERSION
   s.platform              = Gem::Platform::RUBY
-  s.author                = "Brooke Kuhlmann"
-  s.email                 = "brooke@redalchemist.com"
+  s.authors               = ["Brooke Kuhlmann"]
+  s.email                 = ["brooke@redalchemist.com"]
   s.homepage              = "https://github.com/bkuhlmann/log_plus"
   s.summary               = "Enhances default Rails logging."
   s.description           = "Enhances default Rails logging with custom log prefixes, max log sizes, and more."
