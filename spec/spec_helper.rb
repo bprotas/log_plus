@@ -24,12 +24,15 @@ end
 
 RSpec.configure do |config|
   config.include ActiveSupport::Testing::TimeHelpers
-
   config.expect_with(:rspec) { |expectation| expectation.syntax = :expect }
   config.run_all_when_everything_filtered = true
   config.filter_run focus: true
   config.order = "random"
   config.infer_base_class_for_anonymous_controllers = false
+
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
+  end
 
   config.before(:all) { GC.disable }
   config.after(:all) { GC.enable }
