@@ -9,18 +9,18 @@
 
 # Features
 
-* Provides customization of default settings.
-* Prefixes log output with timestamps and remote IP addresses.
-* Configures max log size to 1MB for local environments (i.e. test and development).
-* Configures max log size to 5MB with log rotation (7 files max) for remote environments (i.e. review, stage,
+- Provides customization of default settings.
+- Prefixes log output with timestamps and remote IP addresses.
+- Configures max log size to 1MB for local environments (i.e. test and development).
+- Configures max log size to 5MB with log rotation (7 files max) for remote environments (i.e. review, stage,
   production, etc).
 
 # Requirements
 
 0. Any of the following Ruby VMs:
-    * [MRI 2.x.x](http://www.ruby-lang.org)
-    * [JRuby 1.x.x](http://jruby.org)
-    * [Rubinius 2.x.x](http://rubini.us)
+    - [MRI 2.x.x](http://www.ruby-lang.org)
+    - [JRuby 1.x.x](http://jruby.org)
+    - [Rubinius 2.x.x](http://rubini.us)
 0. [Ruby on Rails 4.x.x](http://rubyonrails.org).
 
 # Setup
@@ -45,11 +45,11 @@ Add the following to your Gemfile:
 
 Within your application or environment *.rb files, you can configure any of the following settings:
 
-* Log+ Settings:
-    * config.log_plus_settings[:max_size] = Optional. Sets max log size (local environments only). Default: 1MB.
-* Rails Settings:
-    * config.log_tags = Optional. Defines log output (all environments). Default: Timestamp and remote IP prefixes.
-    * config.logger = Optional. Configures the Rails logger (all environments). Default: Logger.new (with 5MB max size
+- Log+ Settings:
+    - config.log_plus_settings[:max_size] = Optional. Sets max log size (local environments only). Default: 1MB.
+- Rails Settings:
+    - config.log_tags = Optional. Defines log output (all environments). Default: Timestamp and remote IP prefixes.
+    - config.logger = Optional. Configures the Rails logger (all environments). Default: Logger.new (with 5MB max size
       and 7 files max rotation).
 
 # Tests
@@ -62,9 +62,9 @@ To test, run:
 
 Read [Semantic Versioning](http://semver.org) for details. Briefly, it means:
 
-* Patch (x.y.Z) - Incremented for small, backwards compatible bug fixes.
-* Minor (x.Y.z) - Incremented for new, backwards compatible public API enhancements and/or bug fixes.
-* Major (X.y.z) - Incremented for any backwards incompatible public API changes.
+- Patch (x.y.Z) - Incremented for small, backwards compatible bug fixes.
+- Minor (x.Y.z) - Incremented for new, backwards compatible public API enhancements and/or bug fixes.
+- Major (X.y.z) - Incremented for any backwards incompatible public API changes.
 
 # Contributions
 
