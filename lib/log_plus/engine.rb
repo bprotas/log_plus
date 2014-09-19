@@ -13,7 +13,7 @@ module LogPlus
       if Rails.env.test? || Rails.env.development?
         Dir[File.join(Rails.root, "log", "*.log")].each do |log|
           if File.size?(log).to_f > max_size.megabytes
-            $stdout.puts "[log+] Max log size detected (#{max_size} MB), clearing #{log}..."
+            $stdout.puts "[log+] Max size detected (#{max_size} MB), clearing #{log}..."
             `> "#{log}"`
           end
         end

@@ -116,7 +116,7 @@ describe LogPlus::Engine do
       max_size = Float(Rails.application.config.log_plus_settings.fetch :max_size)
       result = -> { initializer.run Rails.application }
 
-      expect(&result).to output("[log+] Max log size detected (#{max_size} MB), clearing #{test_log}...\n").to_stdout
+      expect(&result).to output("[log+] Max size detected (#{max_size} MB), clearing #{test_log}...\n").to_stdout
     end
   end
 end
