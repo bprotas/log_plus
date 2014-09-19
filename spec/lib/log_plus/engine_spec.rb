@@ -105,4 +105,18 @@ describe LogPlus::Engine do
       end
     end
   end
+
+  describe "log messaging" do
+    let(:dummy_log) { File.join Dir.pwd, "spec", "support", "large.log.example" }
+    let(:test_log) { File.join Dir.pwd, "spec", "dummy", "log", "test.log" }
+
+    before { FileUtils.cp dummy_log, test_log }
+
+    it "prints message with max size and file name" do
+      max_size = Float(Rails.application.config.log_plus_settings.fetch :max_size)
+      result = -> { initializer.run Rails.application }
+
+      expect(&result).to output("[log+] Max log size detected (#{max_size} MB), clearing #{test_log}...\n").to_stdout
+    end
+  end
 end
