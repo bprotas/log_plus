@@ -58,8 +58,8 @@ describe LogPlus::Engine do
   end
 
   describe "log cleaning" do
-    let(:small_log) { File.join Dir.pwd, "spec", "support", "small.log.example" }
-    let(:large_log) { File.join Dir.pwd, "spec", "support", "large.log.example" }
+    let(:small_log) { File.join Dir.pwd, "spec", "support", "files", "small.log.example" }
+    let(:large_log) { File.join Dir.pwd, "spec", "support", "files", "large.log.example" }
     let(:test_log) { File.join Dir.pwd, "spec", "dummy", "log", "test.log" }
 
     context "local environment" do
@@ -107,7 +107,7 @@ describe LogPlus::Engine do
   end
 
   describe "log messaging" do
-    let(:dummy_log) { File.join Dir.pwd, "spec", "support", "large.log.example" }
+    let(:dummy_log) { File.join Dir.pwd, "spec", "support", "files", "large.log.example" }
     let(:test_log) { File.join Dir.pwd, "spec", "dummy", "log", "test.log" }
 
     before { FileUtils.cp dummy_log, test_log }
