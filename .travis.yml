@@ -3,7 +3,6 @@ env:
   global:
     secure: N0x75qPPeUGUf/OhHalXpztEBTe8Bbw8sCRLStIGceq1d+QkIL62zKy1DUT7s3HJ5M0Zgz0/xLYzXcTVv1Z4qwK5rBEoalJcgtO/yJiK6Cs2VWoxZT480YLhIdB8F0cAR0ijOXHOOxordX8Ue5pblTnSGpV4DLks7aC3I0ubYJk=
 rvm:
-- 2.0.0
 - 2.1.0
 - 2.2.0
 - jruby
