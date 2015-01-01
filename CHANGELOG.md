@@ -1,3 +1,16 @@
+# v4.0.0 (2015-01-01)
+
+- Removed Ruby 2.0.0 support.
+- Removed Rubinius support.
+- Updated gemspec to add security keys unless in a CI environment.
+- Updated Code Climate to run only if environment variable is present.
+- Updated log message output to be more concise.
+- Updated gemspec to use RUBY_GEM_SECURITY env var for gem certs.
+- Added Ruby 2.2.0 support.
+- Added Rails 4.2.x support.
+- Added decimal, instead of integer, support for max log sizes.
+- Refactored common RSpec configurations to RSpec support/kit folder.
+
 # v3.0.0 (2014-07-24)
 
 - Removed Rails 4.0.x support.
